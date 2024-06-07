@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { calculateExpenses } from '../services/expenseService';
 
 const ExpenseForm = () => {
     const [students, setStudents] = useState([
@@ -6,7 +7,7 @@ const ExpenseForm = () => {
         { name: 'Jeremiah', expenses: [] },
         { name: 'Leslie', expenses: [] },
     ]);
-    const [results] = useState(null);
+    const [results, setResults] = useState(null);
 
     const handleExpenseChange = (index, event) => {
         const values = [...students];
@@ -16,7 +17,7 @@ const ExpenseForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        //calculate()
+        calculateExpenses(students).then(setResults);
     };
 
     return (
@@ -39,7 +40,11 @@ const ExpenseForm = () => {
             {results && (
                 <div>
                     <h3>Results:</h3>
-                    
+                    <ul>
+                        {Object.entries(results).map(([key, value]) => (
+                            <li key={key}>{key}: ${value.toFixed(2)}</li>
+                        ))}
+                    </ul>
                 </div>
             )}
         </div>
