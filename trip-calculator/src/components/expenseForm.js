@@ -29,7 +29,7 @@ const ExpenseForm = () => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form id="msform" onSubmit={handleSubmit}>
                 {students.map((student, index) => (
                     <div key={index}>
                         <label>
@@ -43,7 +43,7 @@ const ExpenseForm = () => {
                         </label>
                     </div>
                 ))}
-                <button type="submit">Calculate</button>
+                <button class="action-button" type="submit">Calculate</button>
             </form>
             {results && (
                 <div>
