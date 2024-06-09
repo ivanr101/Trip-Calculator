@@ -3,21 +3,28 @@ import { calculateExpenses } from '../services/expenseService';
 
 const ExpenseForm = () => {
     const [students, setStudents] = useState([
-        { name: 'Ivan', expenses: [] },
-        { name: 'Jeremiah', expenses: [] },
-        { name: 'Leslie', expenses: [] },
+        { name: 'Ivan', expenses: '' },
+        { name: 'Jeremiah', expenses: '' },
+        { name: 'Leslie', expenses: '' },
     ]);
     const [results, setResults] = useState(null);
 
     const handleExpenseChange = (index, event) => {
         const values = [...students];
-        values[index].expenses = event.target.value.split(',').map(Number);
+        values[index].expenses = event.target.value;
         setStudents(values);
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        calculateExpenses(students).then(setResults);
+
+        // Parse the expenses string into arrays of numbers
+        const processedStudents = students.map(student => ({
+            ...student,
+            expenses: student.expenses.split(',').map(expense => parseFloat(expense.trim()) || 0)
+        }));
+
+        calculateExpenses(processedStudents).then(setResults);
     };
 
     return (
@@ -29,8 +36,9 @@ const ExpenseForm = () => {
                             {student.name}'s expenses (comma separated):
                             <input
                                 type="text"
-                                value={student.expenses.join(',')}
+                                value={student.expenses}
                                 onChange={event => handleExpenseChange(index, event)}
+                                placeholder="e.g. 12.34, 56.78"
                             />
                         </label>
                     </div>
