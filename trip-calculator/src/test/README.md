@@ -17,6 +17,6 @@ Copy and Paste the contents from the students_example.json or create your own .j
 
 4. **Send the Request and Check the Response**:
 Click Send.
-Verify the response to ensure it matches the expected result. 
+Verify the response matches the expected results. 
 Screenshots of the results are included as JPEG's in the test folder.
 
