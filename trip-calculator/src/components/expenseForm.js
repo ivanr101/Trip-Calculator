@@ -43,7 +43,7 @@ const ExpenseForm = () => {
                         </label>
                     </div>
                 ))}
-                <button class="action-button" type="submit">Calculate</button>
+                <button className="action-button" type="submit">Calculate</button>
             </form>
             {results && (
                 <div>
