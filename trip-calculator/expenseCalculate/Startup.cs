@@ -30,8 +30,8 @@ namespace ExpenseSplitter
                 app.UseDeveloperExceptionPage();
             }
             app.UseCors();
-            app.UseAuthorization();
             app.UseRouting();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
