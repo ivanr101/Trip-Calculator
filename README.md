@@ -1,5 +1,5 @@
 # Trip-Calculator
-Welcome to the Trip Calculator! This tool helps you calculate the minimum amount of money that needs to be exchanged among students after a trip to ensure everyone pays an equal share of the expenses. 
+Welcome to the Trip Calculator! This tool helps you calculate the minimum amount of money that needs to be exchanged among students after a trip to ensure everyone pays an equal share of the expenses. This project utilizes React, JS, HTML, CSS, C#, Node.js, Axios.
 
 ## Prerequisites
 
